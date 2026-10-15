@@ -1,0 +1,774 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#1e1e1e" />
+    <meta
+      name="description"
+      content="vDavin is a Windows hardware monitor with customizable dashboards, sensor history, threshold alerts, and CSV recording. Currently in internal testing."
+    />
+    <meta property="og:title" content="vDavin — Your hardware, in view." />
+    <meta
+      property="og:description"
+      content="A Windows hardware monitor. CPU, GPU, memory, storage, and network, together in one workspace."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://misaka-nnnnq.github.io/vDavin-website/"
+    />
+    <meta
+      property="og:image"
+      content="https://misaka-nnnnq.github.io/vDavin-website/assets/davin.png"
+    />
+    <link
+      rel="canonical"
+      href="https://misaka-nnnnq.github.io/vDavin-website/"
+    />
+    <link rel="icon" href="./assets/davin.ico" sizes="any" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>vDavin — Your hardware, in view.</title>
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="titlebar">
+      <a class="brand" href="#overview" aria-label="vDavin home"
+        ><img src="./assets/davin.png" alt="" width="27" height="27" /><span
+          ><span class="brand-prefix">v</span>Davin</span
+        ></a
+      >
+      <span class="titlebar-path"
+        ><span>/</span> hardware monitor <span>/</span> welcome</span
+      >
+      <nav class="header-links" aria-label="Primary">
+        <a href="#features">Features</a><a href="#download">Download</a
+        ><a href="https://github.com/Misaka-Nnnnq/vDavin-releases"
+          >GitHub <span aria-hidden="true">↗</span></a
+        >
+      </nav>
+      <button
+        class="menu-button"
+        aria-controls="explorer"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="bi" aria-hidden="true">&#xf479;</span>
+      </button>
+    </header>
+
+    <div class="workspace">
+      <aside class="activitybar" aria-label="Shortcuts">
+        <a
+          href="#overview"
+          class="activity active"
+          aria-label="Overview"
+          title="Overview"
+          ><span class="bi" aria-hidden="true">&#xf580;</span></a
+        >
+        <a
+          href="#features"
+          class="activity"
+          aria-label="Features"
+          title="Features"
+          ><span class="bi" aria-hidden="true">&#xf2d6;</span></a
+        >
+        <a
+          href="#download"
+          class="activity"
+          aria-label="Download"
+          title="Download"
+          ><span class="bi" aria-hidden="true">&#xf30a;</span></a
+        >
+        <a href="#faq" class="activity" aria-label="Questions" title="Questions"
+          ><span class="bi" aria-hidden="true">&#xf431;</span></a
+        >
+        <a
+          href="https://github.com/Misaka-Nnnnq/vDavin-releases/issues"
+          class="activity activity-bottom"
+          aria-label="Report an issue"
+          title="Report an issue"
+          ><span class="bi" aria-hidden="true">&#xf3e5;</span></a
+        >
+      </aside>
+      <aside class="explorer" id="explorer" aria-label="Site navigation">
+        <p class="explorer-heading">EXPLORER</p>
+        <details open>
+          <summary>vDavin</summary>
+          <nav aria-label="Sections">
+            <a class="file-link active" href="#overview"
+              ><span class="file-icon" aria-hidden="true">M↓</span>
+              overview.md</a
+            >
+            <a class="file-link" href="#features"
+              ><span class="file-icon" aria-hidden="true">M↓</span>
+              features.md</a
+            >
+            <a class="file-link" href="#download"
+              ><span class="file-icon" aria-hidden="true">M↓</span>
+              getting-started.md</a
+            >
+            <a class="file-link" href="#faq"
+              ><span class="file-icon" aria-hidden="true">M↓</span> faq.md</a
+            >
+            <a class="file-link" href="#project"
+              ><span class="file-icon" aria-hidden="true">M↓</span>
+              project-notes.md</a
+            >
+          </nav>
+        </details>
+        <div class="explorer-info">
+          <p class="explorer-heading">PROJECT</p>
+          <dl>
+            <div>
+              <dt>Platform</dt>
+              <dd>Windows x64</dd>
+            </div>
+            <div>
+              <dt>Stage</dt>
+              <dd class="yellow">Internal test</dd>
+            </div>
+            <div>
+              <dt>Mode</dt>
+              <dd>Read-only</dd>
+            </div>
+          </dl>
+          <a
+            href="https://github.com/Misaka-Nnnnq/vDavin-releases/releases"
+            class="explorer-release"
+            >Browse releases <span aria-hidden="true">↗</span></a
+          >
+        </div>
+      </aside>
+
+      <div class="editor">
+        <div class="editor-tabs">
+          <span class="editor-tab"
+            ><span class="file-icon" aria-hidden="true">M↓</span> welcome.md
+            <span class="tab-dot" aria-hidden="true"></span></span
+          ><span class="editor-breadcrumb"
+            >vDavin <span>/</span> your hardware, in view</span
+          >
+        </div>
+        <main id="main">
+          <section
+            class="hero section"
+            id="overview"
+            aria-labelledby="hero-title"
+          >
+            <div class="hero-copy">
+              <p class="eyebrow">
+                <span class="status-dot"></span> WINDOWS HARDWARE MONITOR
+              </p>
+              <pre class="ascii" aria-hidden="true">
+██████╗  █████╗ ██╗   ██╗██╗███╗   ██╗
+██╔══██╗██╔══██╗██║   ██║██║████╗  ██║
+██║  ██║███████║██║   ██║██║██╔██╗ ██║
+██║  ██║██╔══██║╚██╗ ██╔╝██║██║╚██╗██║
+██████╔╝██║  ██║ ╚████╔╝ ██║██║ ╚████║
+╚═════╝ ╚═╝  ╚═╝  ╚═══╝  ╚═╝╚═╝  ╚═══╝</pre
+              >
+              <h1 id="hero-title">
+                Your hardware,<br /><span>in view.</span
+                ><span class="cursor" aria-hidden="true">_</span>
+              </h1>
+              <p class="hero-description">
+                CPU, GPU, memory, storage, and network.<br />One workspace to
+                see what's happening,<br class="desktop-break" />
+                follow a change, and keep a record.
+              </p>
+              <div class="hero-actions">
+                <a
+                  class="button button-primary"
+                  data-download
+                  href="https://github.com/Misaka-Nnnnq/vDavin-releases/releases"
+                  ><span class="bi" aria-hidden="true">&#xf30a;</span
+                  ><span data-download-label>Download for Windows</span></a
+                ><a class="button button-secondary" href="#features"
+                  >Explore features <span aria-hidden="true">→</span></a
+                >
+              </div>
+              <p class="download-meta">
+                <span data-release-version>Internal test builds</span
+                ><span aria-hidden="true"> · </span>Windows 10 / 11<span
+                  aria-hidden="true"
+                >
+                  · </span
+                >x64
+              </p>
+            </div>
+
+            <div
+              class="preview"
+              aria-label="Illustrative vDavin interface preview"
+            >
+              <div class="preview-title">
+                <span class="window-dots" aria-hidden="true"
+                  ><i></i><i></i><i></i></span
+                ><span>vDavin <span class="muted">/ monitor</span></span
+                ><span class="preview-sample">ILLUSTRATIVE</span>
+              </div>
+              <div
+                class="preview-tabs"
+                role="tablist"
+                aria-label="Preview views"
+              >
+                <button
+                  id="tab-overview"
+                  class="preview-tab"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="panel-overview"
+                  data-preview="overview"
+                >
+                  Overview</button
+                ><button
+                  id="tab-sensors"
+                  class="preview-tab"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="panel-sensors"
+                  tabindex="-1"
+                  data-preview="sensors"
+                >
+                  Sensors</button
+                ><button
+                  id="tab-history"
+                  class="preview-tab"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="panel-history"
+                  tabindex="-1"
+                  data-preview="history"
+                >
+                  History
+                </button>
+              </div>
+              <div
+                id="panel-overview"
+                class="preview-panel"
+                role="tabpanel"
+                aria-labelledby="tab-overview"
+              >
+                <div class="preview-metrics">
+                  <div>
+                    <span
+                      ><span class="bi" aria-hidden="true">&#xf2d6;</span>
+                      CPU</span
+                    ><strong class="cyan">24.6 <small>%</small></strong
+                    ><svg
+                      class="sparkline"
+                      viewBox="0 0 200 40"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M0 28L12 27L25 31L38 18L51 22L64 23L77 9L90 18L103 15L116 24L129 20L142 23L155 17L168 22L181 20L200 23"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <span
+                      ><span class="bi" aria-hidden="true">&#xf6e2;</span>
+                      GPU</span
+                    ><strong class="purple">38.2 <small>%</small></strong
+                    ><svg
+                      class="sparkline purple-line"
+                      viewBox="0 0 200 40"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M0 34L12 32L25 32L38 20L51 24L64 11L77 14L90 18L103 8L116 10L129 24L142 19L155 23L168 18L181 20L200 17"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="preview-memory">
+                  <div>
+                    <span>Physical memory</span
+                    ><span class="cyan">12.8 / 32.0 GiB</span>
+                  </div>
+                  <div class="memory-track"><span></span></div>
+                </div>
+                <div class="preview-devices">
+                  <div>
+                    <span class="muted">Storage</span
+                    ><span>128.4 MiB/s <span class="muted">read</span></span>
+                  </div>
+                  <div>
+                    <span class="muted">Network</span
+                    ><span
+                      >↓ 4.2 MiB/s <span class="muted">↑ 128 KiB/s</span></span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div
+                id="panel-sensors"
+                class="preview-panel"
+                role="tabpanel"
+                aria-labelledby="tab-sensors"
+                hidden
+              >
+                <table class="sensor-table">
+                  <caption>
+                    CPU / session statistics
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th>Sensor</th>
+                      <th>Current</th>
+                      <th>Min</th>
+                      <th>Max</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th>Utilization</th>
+                      <td>24.6 %</td>
+                      <td>2.1 %</td>
+                      <td>68.5 %</td>
+                    </tr>
+                    <tr>
+                      <th>Temperature</th>
+                      <td>61.0 °C</td>
+                      <td>42.0 °C</td>
+                      <td>72.0 °C</td>
+                    </tr>
+                    <tr>
+                      <th>Package power</th>
+                      <td>28.4 W</td>
+                      <td>8.6 W</td>
+                      <td>46.2 W</td>
+                    </tr>
+                    <tr>
+                      <th>Frequency</th>
+                      <td>4.20 GHz</td>
+                      <td>1.40 GHz</td>
+                      <td>4.80 GHz</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p class="preview-hint">
+                  ☆ Favorites · Device tree · Search &amp; filters
+                </p>
+              </div>
+              <div
+                id="panel-history"
+                class="preview-panel"
+                role="tabpanel"
+                aria-labelledby="tab-history"
+                hidden
+              >
+                <div
+                  class="history-legend"
+                  aria-label="Illustrative chart metric"
+                >
+                  <button
+                    class="metric-option selected"
+                    aria-pressed="true"
+                    data-metric="cpu"
+                  >
+                    CPU</button
+                  ><button
+                    class="metric-option"
+                    aria-pressed="false"
+                    data-metric="memory"
+                  >
+                    Memory</button
+                  ><button
+                    class="metric-option"
+                    aria-pressed="false"
+                    data-metric="gpu"
+                  >
+                    GPU</button
+                  ><strong id="chart-value">24.6 %</strong>
+                </div>
+                <svg
+                  class="history-chart"
+                  viewBox="0 0 400 170"
+                  role="img"
+                  aria-label="Illustrative CPU utilization history"
+                >
+                  <path
+                    class="chart-grid"
+                    d="M0 10H400M0 60H400M0 110H400M0 160H400"
+                  />
+                  <path
+                    class="chart-area"
+                    id="chart-area"
+                    d="M0 120L40 130L80 70L120 100L160 95L200 45L240 100L280 90L320 120L360 105L400 115V170H0Z"
+                  />
+                  <path
+                    id="chart-line"
+                    d="M0 120L40 130L80 70L120 100L160 95L200 45L240 100L280 90L320 120L360 105L400 115"
+                  />
+                </svg>
+                <div class="chart-axis">
+                  <span>−1 minute</span><span>now</span>
+                </div>
+              </div>
+              <div class="preview-footer">
+                <span><span class="status-dot"></span> Example values</span
+                ><span>Not live telemetry</span>
+              </div>
+            </div>
+          </section>
+
+          <div class="terminal">
+            <div class="terminal-caption">
+              <span class="bi" aria-hidden="true">&#xf5c3;</span>
+              monitoring.workspace
+            </div>
+            <p>
+              <span class="green">$</span> observe
+              <span class="cyan">--hardware</span>
+              <span class="yellow">cpu gpu memory storage network</span>
+            </p>
+            <p class="terminal-output">
+              // Keep the details. See the connections.
+            </p>
+          </div>
+
+          <section
+            class="section"
+            id="features"
+            aria-labelledby="features-title"
+          >
+            <div class="section-heading">
+              <span class="section-number">01</span>
+              <h2 id="features-title"><span>//</span> A closer look</h2>
+              <p>From a quick glance to a recorded session.</p>
+            </div>
+            <div class="feature-grid">
+              <article class="feature">
+                <span class="bi feature-icon cyan" aria-hidden="true"
+                  >&#xf580;</span
+                >
+                <h3>A dashboard that fits</h3>
+                <p>
+                  Choose up to 16 sensor cards, drag them into place, and follow
+                  recent history and alert status. Your layout is there when you
+                  return.
+                </p>
+                <span class="feature-tag">Overview / custom layouts</span>
+              </article>
+              <article class="feature">
+                <span class="bi feature-icon purple" aria-hidden="true"
+                  >&#xf5cd;</span
+                >
+                <h3>Every reading, organized</h3>
+                <p>
+                  A device tree, current / minimum / maximum values, search, and
+                  favorites. Find a sensor without losing the rest of the
+                  picture.
+                </p>
+                <span class="feature-tag">Sensors / one workspace</span>
+              </article>
+              <article class="feature">
+                <span class="bi feature-icon green" aria-hidden="true"
+                  >&#xf66b;</span
+                >
+                <h3>Compare what changes</h3>
+                <p>
+                  Plot up to 16 metrics on a shared time axis. Pause to inspect
+                  the last one or five minutes and see how readings relate.
+                </p>
+                <span class="feature-tag">History / comparison charts</span>
+              </article>
+              <article class="feature">
+                <span class="bi feature-icon yellow" aria-hidden="true"
+                  >&#xf33b;</span
+                >
+                <h3>Set a boundary</h3>
+                <p>
+                  Configure thresholds and durations, then follow trigger and
+                  recovery events. Unavailable samples stay distinct from valid
+                  readings.
+                </p>
+                <span class="feature-tag">Alerts / trigger &amp; recovery</span>
+              </article>
+            </div>
+            <div class="coverage">
+              <div class="coverage-title">
+                <span class="muted">SUPPORTED AREAS</span
+                ><span class="muted">Device support varies</span>
+              </div>
+              <dl>
+                <div>
+                  <dt>
+                    <span class="bi" aria-hidden="true">&#xf2d6;</span> CPU
+                  </dt>
+                  <dd>
+                    Per-core load, frequency, supported Intel / AMD temperature
+                    and package power
+                  </dd>
+                </div>
+                <div>
+                  <dt>
+                    <span class="bi" aria-hidden="true">&#xf6e2;</span> GPU
+                  </dt>
+                  <dd>
+                    Multiple adapters, load, memory, supported NVIDIA / AMD
+                    native telemetry
+                  </dd>
+                </div>
+                <div>
+                  <dt>
+                    <span class="bi" aria-hidden="true">&#xf6e3;</span> Memory
+                  </dt>
+                  <dd>Physical memory and system-wide committed memory</dd>
+                </div>
+                <div>
+                  <dt>
+                    <span class="bi" aria-hidden="true">&#xf6f9;</span> Storage
+                  </dt>
+                  <dd>Throughput, IOPS, active time, and local volume space</dd>
+                </div>
+                <div>
+                  <dt>
+                    <span class="bi" aria-hidden="true">&#xf2ee;</span> Network
+                  </dt>
+                  <dd>
+                    Connection state, upload / download rates, traffic totals,
+                    and link speeds
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </section>
+
+          <section
+            class="section"
+            id="download"
+            aria-labelledby="download-title"
+          >
+            <div class="section-heading">
+              <span class="section-number">02</span>
+              <h2 id="download-title"><span>//</span> Get up and monitoring</h2>
+              <p>A portable folder. No development tools required.</p>
+            </div>
+            <div class="install-grid">
+              <div class="steps">
+                <div>
+                  <span>01</span>
+                  <div>
+                    <h3>Download a test build</h3>
+                    <p>
+                      Get the Windows x64 ZIP and its SHA-256 checksum from the
+                      public release page.
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <span>02</span>
+                  <div>
+                    <h3>Extract everything</h3>
+                    <p>
+                      Keep the DLLs, <code>assets/</code>, and
+                      <code>vDavinIo.sys</code> beside <code>vDavin.exe</code>.
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <span>03</span>
+                  <div>
+                    <h3>Launch vDavin</h3>
+                    <p>
+                      Accept the administrator prompt and read the test notice.
+                      Start with Overview or explore Sensors.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="download-card">
+                <div class="download-card-heading">
+                  <span class="bi cyan" aria-hidden="true">&#xf30a;</span
+                  ><span>Windows x64</span
+                  ><span class="test-badge">TEST BUILD</span>
+                </div>
+                <p class="download-version" data-release-version>
+                  Public releases
+                </p>
+                <p>
+                  Windows 10 / 11 · Portable ZIP<br />Runtime libraries included
+                  · No PDBs
+                </p>
+                <a
+                  class="button button-primary"
+                  data-download
+                  href="https://github.com/Misaka-Nnnnq/vDavin-releases/releases"
+                  ><span class="bi" aria-hidden="true">&#xf30a;</span
+                  ><span data-download-label>Browse downloads</span></a
+                >
+                <div class="download-card-links">
+                  <a
+                    data-checksum
+                    href="https://github.com/Misaka-Nnnnq/vDavin-releases/releases"
+                    >SHA-256 checksum <span aria-hidden="true">↗</span></a
+                  ><a
+                    href="https://github.com/Misaka-Nnnnq/vDavin-releases/releases"
+                    >All releases <span aria-hidden="true">↗</span></a
+                  >
+                </div>
+                <p class="release-note" id="release-note" aria-live="polite">
+                  Test builds are published by the maintainers.
+                </p>
+              </div>
+            </div>
+            <details class="verify-download">
+              <summary>Verify your download in PowerShell</summary>
+              <div class="code-heading">
+                <span>PowerShell</span
+                ><button
+                  class="copy-button"
+                  data-copy
+                  aria-label="Copy checksum command"
+                >
+                  Copy
+                </button>
+              </div>
+              <pre><code id="checksum-command">Get-FileHash -Algorithm SHA256 -LiteralPath '.\vDavin-&lt;version&gt;-windows-x64.zip'</code></pre>
+              <p>
+                Compare the hash with the matching
+                <code>.zip.sha256</code> file. This checks the archive without
+                running the application.
+              </p>
+              <span class="copy-status" aria-live="polite"></span>
+            </details>
+          </section>
+
+          <section class="section" id="faq" aria-labelledby="faq-title">
+            <div class="section-heading">
+              <span class="section-number">03</span>
+              <h2 id="faq-title"><span>//</span> A few things to know</h2>
+              <p>Before you start.</p>
+            </div>
+            <div class="faq-list">
+              <details>
+                <summary>
+                  Why does vDavin request administrator permission?
+                </summary>
+                <p>
+                  Native CPU telemetry uses the bundled monitoring driver. The
+                  application manages its service automatically and performs
+                  cleanup on normal exit. Administrator permission is requested
+                  at startup.
+                </p>
+              </details>
+              <details>
+                <summary>Why is a reading unavailable?</summary>
+                <p>
+                  Readings depend on the CPU, GPU, firmware, installed drivers,
+                  and Windows support. One unavailable backend does not mean
+                  every sensor has failed. A missing reading is shown as
+                  unavailable, rather than replaced with zero.
+                </p>
+              </details>
+              <details>
+                <summary>Can I record readings and keep my settings?</summary>
+                <p>
+                  Yes. Start background CSV recording in Sensors and choose a
+                  save directory. Preferences, favorites, alert rules, and
+                  layouts persist between launches. CSV recording starts off
+                  each session; charts and statistics cover the current session.
+                </p>
+              </details>
+              <details>
+                <summary>Does vDavin support hardware tuning?</summary>
+                <p>
+                  Monitoring is read-only. Hardware tuning, disk SMART health,
+                  motherboard / fan sensors, and per-process network traffic are
+                  not currently implemented.
+                </p>
+              </details>
+              <details>
+                <summary>Where can I report a problem?</summary>
+                <p>
+                  Use the
+                  <a
+                    href="https://github.com/Misaka-Nnnnq/vDavin-releases/issues"
+                    >public issue tracker</a
+                  >. Include the version and build commit from Settings → About,
+                  your Windows version, relevant hardware, and steps to
+                  reproduce. Review logs and screenshots before sharing personal
+                  paths or device identifiers.
+                </p>
+              </details>
+            </div>
+          </section>
+
+          <section
+            class="section project-section"
+            id="project"
+            aria-labelledby="project-title"
+          >
+            <div class="section-heading">
+              <span class="section-number">04</span>
+              <h2 id="project-title"><span>//</span> Project notes</h2>
+            </div>
+            <div class="project-notice">
+              <p class="notice-label">
+                <span class="bi" aria-hidden="true">&#xf33b;</span> INTERNAL
+                TEST VERSION
+              </p>
+              <p>
+                vDavin may contain many bugs, and hardware coverage is still
+                incomplete. Read the reminder shown at each launch.
+              </p>
+              <p>
+                AI has been deeply involved in this project. All code
+                modifications have been performed by AI, and the code has been
+                <strong>PARTIALLY</strong> reviewed by humans. This is primarily
+                a toy project and an experiment exploring the safety boundaries
+                of AI-generated code running with elevated privileges. Absolute
+                safety is not guaranteed.
+              </p>
+            </div>
+            <p class="driver-note">
+              The vDavinIo driver source code is currently kept private by the
+              project maintainers for security reasons.
+            </p>
+            <div class="project-bottom">
+              <div>
+                <h3>Built by vDavin Contributors</h3>
+                <p>
+                  Application development takes place in a private
+                  repository.<br />Public downloads and issue reports have a
+                  home on GitHub.
+                </p>
+              </div>
+              <a
+                class="button button-secondary"
+                href="https://github.com/Misaka-Nnnnq/vDavin-releases"
+                >Release repository <span aria-hidden="true">↗</span></a
+              >
+            </div>
+          </section>
+          <footer class="page-footer">
+            <span>© <span id="year">2026</span> vDavin Contributors</span
+            ><a href="https://github.com/Misaka-Nnnnq/vDavin-website"
+              >Website source <span aria-hidden="true">↗</span></a
+            ><span
+              >Application license &amp; third-party notices are included in
+              each ZIP.</span
+            >
+          </footer>
+        </main>
+      </div>
+    </div>
+    <footer class="statusbar">
+      <span><span class="bi" aria-hidden="true">&#xf2ee;</span> main</span
+      ><span>vDavin / welcome</span
+      ><span class="statusbar-right"
+        >Windows x64 <span>UTF-8</span> <span>Markdown</span></span
+      >
+    </footer>
+    <noscript
+      ><div class="noscript-note">
+        The download links and documentation work without JavaScript.
+        Interactive previews require JavaScript.
+      </div></noscript
+    >
+  </body>
+</html>
