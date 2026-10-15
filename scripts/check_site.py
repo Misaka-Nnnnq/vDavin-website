@@ -41,7 +41,11 @@ for link in parser.links:
         assert parts.fragment in parser.ids, f"Missing anchor: {link}"
 
 for required in ("assets/JetBrainsMono-OFL.txt", "assets/bootstrap-icons-LICENSE.txt",
+                 "assets/JetBrainsMono-Regular.ttf", "assets/JetBrainsMono-Medium.ttf",
+                 "assets/bootstrap-icons.woff",
                  "assets/davin.png", "styles.css", "app.js", "release.mjs", ".nojekyll"):
     assert (ROOT / required).is_file(), f"Missing deployable file: {required}"
 assert not list(ROOT.rglob(".git")), "Never deploy Git metadata"
+assert not any(path.suffix.lower() in {".exe", ".sys", ".pdb", ".zip"}
+               for path in ROOT.rglob("*")), "Application binaries do not belong in Pages"
 print(f"PASS: {len(parser.links)} links/assets; {len(parser.ids)} unique anchors; deployment boundaries and notices")
