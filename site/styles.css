@@ -237,6 +237,7 @@ button:disabled {
   color: #aaa;
   font-size: 11px;
   border-left: 2px solid transparent;
+  white-space: nowrap;
 }
 .file-link:hover {
   background: #303031;
@@ -1101,7 +1102,7 @@ summary:hover {
 }
 @media (max-width: 1250px) {
   .workspace {
-    grid-template-columns: 44px 177px minmax(0, 1fr);
+    grid-template-columns: 44px 202px minmax(0, 1fr);
   }
   main {
     padding: 0 29px;
