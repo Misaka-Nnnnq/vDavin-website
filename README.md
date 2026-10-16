@@ -33,6 +33,8 @@ Repository **Settings → Pages → Build and deployment → Source** must be se
 ## Content and download links
 
 Edit `site/index.html` for content and `site/styles.css` for presentation.
+Increment the stylesheet URL's `v` query when publishing CSS changes so returning
+visitors receive the new stylesheet without waiting for their cached copy.
 `site/app.js` implements the responsive navigation, accessible preview tabs,
 illustrative charts, and checksum-command copy action. Preview values are
 explicitly illustrative; the website does not sample a visitor's hardware.
