@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://misaka-nnnnq.github.io/vDavin-website/sitemap.xml
+Sitemap: https://vdavin.nnnnq.cc/sitemap.xml

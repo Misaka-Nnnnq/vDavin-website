@@ -2,7 +2,7 @@
 
 The public GitHub Pages website for vDavin, a Windows hardware monitor.
 
-- Website: <https://misaka-nnnnq.github.io/vDavin-website/>
+- Website: <https://vdavin.nnnnq.cc/>
 - Downloads and issues: <https://github.com/Misaka-Nnnnq/vDavin-releases>
 
 The visual direction takes inspiration from the editor and terminal aesthetic
